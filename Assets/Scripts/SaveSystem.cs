@@ -7,6 +7,10 @@ public static class SaveSystem
     {
         PlayerPrefs.SetInt(name,saveObject);
     }
+    public static void Save(float saveObject,string name = "")
+    {
+        PlayerPrefs.SetFloat(name,saveObject);
+    }
     public static void Save(DateTime saveObject,string name = "")
     {
         PlayerPrefs.SetString(name,saveObject.ToString());
@@ -20,6 +24,13 @@ public static class SaveSystem
     {
         if (PlayerPrefs.HasKey(name))
             return PlayerPrefs.GetInt(name);
+        else
+            return saveObject;
+    }
+    public static float Get(float saveObject,string name = "")
+    {
+        if (PlayerPrefs.HasKey(name))
+            return PlayerPrefs.GetFloat(name);
         else
             return saveObject;
     }
@@ -40,15 +51,4 @@ public static class SaveSystem
         else
             return saveObject;
     }
-    // public static void Save(float saveObject,string name = "")
-    // {
-    //     PlayerPrefs.SetFloat(name,saveObject);
-    // }
-    // public static float Get(float saveObject,string name = "")
-    // {
-    //     if (PlayerPrefs.HasKey(name))
-    //         return PlayerPrefs.GetFloat(name);
-    //     else
-    //         return saveObject;
-    // }
 }

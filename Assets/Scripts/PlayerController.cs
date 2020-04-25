@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public Animator animator;
-    private static readonly int Spin = Animator.StringToHash("playerSpin");
     public static Avatar playerAvatar;
     public static int playerAvatarId = 0;
     public AvatarScripts defaultAvatar;
@@ -25,13 +23,8 @@ public class PlayerController : MonoBehaviour
         SaveSystem.Save(playerAvatarId,"playerAvatarId");
     }
 
-        private void Update()
-        {
-            playerIcon.GetComponent<Image>().sprite = playerAvatar.image;
-        }
-
-    private void OnMouseDown()
+    private void Update()
     {
-        //animator.Play(Spin);
+        playerIcon.GetComponent<Image>().sprite = playerAvatar.image;
     }
 }

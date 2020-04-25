@@ -24,11 +24,7 @@
       <Path>.git</Path>
       <Path>.idea</Path>
       <Path>Library</Path>
-      <Path>Logs</Path>
       <Path>Mac</Path>
-      <Path>Mac.app</Path>
-      <Path>Temp</Path>
-      <Path>Win</Path>
       <Path>obj</Path>
     </explicitExcludes>
   </component>

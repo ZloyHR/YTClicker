@@ -8,6 +8,7 @@ public class ClickHandler : MonoBehaviour
     public static Currency viewsPerClick = new Currency(1);
     public static Currency viewsPerSecond = Currency.zero;
     public static Currency subsPerSecond = Currency.zero;
+    public static float secondsFromLastExit;
 
     private void Start()
     {
@@ -15,12 +16,12 @@ public class ClickHandler : MonoBehaviour
         DateTime prevTime = DateTime.UtcNow;
         prevTime = SaveSystem.Get(prevTime,"prevTime");
         TimeSpan delta = nowTime - prevTime;
-        float seconds = Mathf.Clamp((float)delta.TotalSeconds, 0f, 6f * 60 * 60);
+        secondsFromLastExit = Mathf.Clamp((float)delta.TotalSeconds, 0f, 6f * 60 * 60);
         viewsPerClick = SaveSystem.Get(viewsPerClick,"viewsPerClick");
         viewsPerSecond = SaveSystem.Get(viewsPerSecond,"viewsPerSecond");
         subsPerSecond = SaveSystem.Get(subsPerSecond,"subsPerSecond");
-        StatsController.subscribers += subsPerSecond * seconds;
-        StatsController.views += viewsPerSecond * seconds + StatsController.subscribers * RandomCurrency(0f,60f) * seconds;
+        StatsController.subscribers += subsPerSecond * secondsFromLastExit;
+        StatsController.views += viewsPerSecond * secondsFromLastExit + StatsController.subscribers * RandomCurrency(0f,60f) * secondsFromLastExit;
         StatsController.g.UpdateSubs(Currency.zero);
         StatsController.g.UpdateViews(Currency.zero);
         StartCoroutine(SleepAdd(false));
@@ -29,7 +30,7 @@ public class ClickHandler : MonoBehaviour
 
     public void AddViews()
     {
-        StatsController.g.UpdateViews(viewsPerClick);
+        StatsController.g.UpdateViews(viewsPerClick * PowerUp.multiply);
     }
 
     public static void Save()
