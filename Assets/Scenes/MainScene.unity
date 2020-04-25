@@ -687,7 +687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f64c9400558354f845e0a1b388f50b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 1K
+  startMoney: 1B
   moneyText:
   - {fileID: 915829045}
 --- !u!114 &519420034
@@ -1700,7 +1700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd8a7b474777214086b64e116c989dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1104929682}
   defaultAvatar: {fileID: 11400000, guid: 031c49e20f18c634c8cc2653b4da668e, type: 2}
   playerIcon: {fileID: 1539980634}
 --- !u!114 &1104929679
